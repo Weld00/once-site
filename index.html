@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一思 | 大事多一思，小事只一思</title>
+    <meta
+      name="description"
+      content="一思是一个帮助用户做选择的网站：大问题多一思，小问题只一思。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy hero-copy--merged">
+          <div class="hero-top">
+            <div class="hero-title">
+              <p class="eyebrow">YISI</p>
+              <h1>一思</h1>
+              <p class="slogan">大事多一思，小事只一思</p>
+            </div>
+            <div class="hero-note">
+              <p class="panel-label">先做第一层判断</p>
+              <p class="panel-note">
+                先分清它是人生大题，还是日常小题，再决定该深思还是该快选。
+              </p>
+            </div>
+          </div>
+          <p class="intro">
+            不是所有问题都值得反复拉扯。大问题看利弊、风险与长期后果，小问题看效率与心力成本。一思帮你先把决策方式选对。
+          </p>
+        </div>
+      </header>
+
+      <main class="decision-grid">
+        <section class="decision-card major-card" id="major-card">
+          <button class="fullscreen-close" type="button" data-close-card="major">返回总览</button>
+          <div class="card-head">
+            <p class="card-kicker">入口一</p>
+            <h2>大问题，多一思</h2>
+            <p class="card-desc">
+              适合会影响关系、职业、金钱、长期规划的重要决定。系统梳理，再由你自己下判断。
+            </p>
+          </div>
+
+          <label class="input-label" for="major-question">你正在面对什么大问题？</label>
+          <textarea
+            id="major-question"
+            class="text-input"
+            placeholder="例如：我要不要换工作去另一座城市？"
+          ></textarea>
+
+          <div class="compare-builder">
+            <div class="compare-head">
+              <h3>把问题落到两个方案上</h3>
+              <p>如果你已经有两个方向，用分项打分把纠结变成可比较的判断。</p>
+            </div>
+
+            <div class="option-grid">
+              <label class="input-label" for="option-a">方案 A</label>
+              <input
+                id="option-a"
+                class="line-input"
+                type="text"
+                placeholder="例如：留在现在的城市"
+              />
+              <label class="input-label" for="option-b">方案 B</label>
+              <input
+                id="option-b"
+                class="line-input"
+                type="text"
+                placeholder="例如：去新城市换工作"
+              />
+            </div>
+
+            <div class="score-table-wrap">
+              <table class="score-table">
+                <thead>
+                  <tr>
+                    <th>维度</th>
+                    <th>权重</th>
+                    <th>方案 A</th>
+                    <th>方案 B</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>长期价值</td>
+                    <td><input class="score-input" id="weight-growth" type="number" min="1" max="10" value="9" /></td>
+                    <td><input class="score-input" id="score-a-growth" type="number" min="1" max="10" value="6" /></td>
+                    <td><input class="score-input" id="score-b-growth" type="number" min="1" max="10" value="8" /></td>
+                  </tr>
+                  <tr>
+                    <td>现实可行性</td>
+                    <td><input class="score-input" id="weight-feasibility" type="number" min="1" max="10" value="8" /></td>
+                    <td><input class="score-input" id="score-a-feasibility" type="number" min="1" max="10" value="8" /></td>
+                    <td><input class="score-input" id="score-b-feasibility" type="number" min="1" max="10" value="5" /></td>
+                  </tr>
+                  <tr>
+                    <td>风险承受度</td>
+                    <td><input class="score-input" id="weight-risk" type="number" min="1" max="10" value="7" /></td>
+                    <td><input class="score-input" id="score-a-risk" type="number" min="1" max="10" value="7" /></td>
+                    <td><input class="score-input" id="score-b-risk" type="number" min="1" max="10" value="4" /></td>
+                  </tr>
+                  <tr>
+                    <td>内心意愿</td>
+                    <td><input class="score-input" id="weight-desire" type="number" min="1" max="10" value="8" /></td>
+                    <td><input class="score-input" id="score-a-desire" type="number" min="1" max="10" value="5" /></td>
+                    <td><input class="score-input" id="score-b-desire" type="number" min="1" max="10" value="9" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <button id="analyze-btn" class="action-btn">开始多一思</button>
+
+          <div id="major-result" class="result-panel result-panel--soft" aria-live="polite">
+            <div class="result-empty">
+              输入你的问题后，这里会结合评分表，从目标、收益、风险、成本和建议动作几个维度给出分析。
+            </div>
+          </div>
+        </section>
+
+        <section class="decision-card minor-card" id="minor-card">
+          <button class="fullscreen-close" type="button" data-close-card="minor">返回总览</button>
+          <div class="card-head">
+            <p class="card-kicker">入口二</p>
+            <h2>小问题，只一思</h2>
+            <p class="card-desc">
+              适合低风险、低后果、只是让你耗神的小决定。直接给结果，减少纠结成本。
+            </p>
+          </div>
+
+          <label class="input-label" for="minor-question">你在纠结什么小问题？</label>
+          <textarea
+            id="minor-question"
+            class="text-input"
+            placeholder="例如：今天晚饭吃面还是吃饭？"
+          ></textarea>
+
+          <button id="decide-btn" class="action-btn action-btn--accent">让我只一思</button>
+
+          <div id="minor-result" class="result-panel result-panel--strong" aria-live="polite">
+            <div class="result-empty">
+              输入一个低成本选择题，这里会直接随机帮你拍板，并附一句行动建议。
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
