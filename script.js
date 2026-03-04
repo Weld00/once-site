@@ -1,9 +1,18 @@
+const body = document.body;
+const enterMajorButton = document.querySelector("#enter-major");
+const enterMinorButton = document.querySelector("#enter-minor");
+const backToGateButton = document.querySelector("#back-to-gate");
+const modeTitle = document.querySelector("#mode-title");
+const majorSection = document.querySelector("#major-section");
+const minorSection = document.querySelector("#minor-section");
 const majorForm = document.querySelector("#major-form");
 const minorForm = document.querySelector("#minor-form");
 const majorResult = document.querySelector("#major-result");
 const minorResult = document.querySelector("#minor-result");
 const majorFeedback = document.querySelector("#major-feedback");
 const minorFeedback = document.querySelector("#minor-feedback");
+const majorQuestionInput = document.querySelector("#major-question");
+const minorQuestionInput = document.querySelector("#minor-question");
 
 const MAJOR_PLACEHOLDER =
   "填好问题后，这里会输出建议倾向、核心理由、下一步建议和决策提醒。";
@@ -348,6 +357,49 @@ function handleMinorSubmit(event) {
   renderResult(minorResult, renderMinorResult(result, data));
   showMessage(minorFeedback, "结果已生成，别再反复犹豫。", "success");
 }
+
+function setMode(mode) {
+  body.classList.remove("is-gated", "mode-major", "mode-minor");
+
+  if (!mode) {
+    body.classList.add("is-gated");
+    modeTitle.textContent = "";
+    return;
+  }
+
+  body.classList.add(`mode-${mode}`);
+  modeTitle.textContent = mode === "major" ? "当前模式：认真判断" : "当前模式：快速决定";
+}
+
+function enterTool(target) {
+  const isMajor = target === "major";
+  const section = isMajor ? majorSection : minorSection;
+  const input = isMajor ? majorQuestionInput : minorQuestionInput;
+
+  setMode(target);
+
+  window.requestAnimationFrame(() => {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => {
+      input.focus();
+    }, 180);
+  });
+}
+
+enterMajorButton.addEventListener("click", () => {
+  enterTool("major");
+});
+
+enterMinorButton.addEventListener("click", () => {
+  enterTool("minor");
+});
+
+backToGateButton.addEventListener("click", () => {
+  setMode("");
+  window.requestAnimationFrame(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
 
 majorForm.addEventListener("submit", handleMajorSubmit);
 minorForm.addEventListener("submit", handleMinorSubmit);

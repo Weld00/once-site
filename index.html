@@ -10,7 +10,41 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="is-gated">
+    <section class="entry-gate" aria-labelledby="gate-title">
+      <div class="entry-gate-card">
+        <p class="hero-mark">YISI</p>
+        <h1 id="gate-title">一思</h1>
+        <p class="hero-slogan">大事多一思，小事只一思</p>
+        <p class="gate-summary">先分清这件事值不值得多想，再决定该认真判断，还是快速定掉。</p>
+        <div class="gate-grid" role="group" aria-label="选择入口">
+          <article class="gate-block gate-block-major">
+            <p class="gate-label">适合重要问题</p>
+            <h2>认真判断</h2>
+            <p>
+              用在影响时间长、代价高、做错难回头的事。你输入条件，一思帮你把风险、信息和得失拆开看。
+            </p>
+            <button id="enter-major" class="primary-button gate-button" type="button">进入认真判断</button>
+          </article>
+          <article class="gate-block gate-block-minor">
+            <p class="gate-label">适合轻量选择</p>
+            <h2>快速决定</h2>
+            <p>
+              用在低风险、低代价、不值得继续耗心力的小问题。直接给出答案，帮你尽快结束内耗。
+            </p>
+            <button
+              id="enter-minor"
+              class="primary-button primary-button-accent gate-button"
+              type="button"
+            >
+              进入快速决定
+            </button>
+          </article>
+        </div>
+        <p class="gate-note">所有输入都只在当前浏览器处理，不登录、不上传、不保存。</p>
+      </div>
+    </section>
+
     <div class="page-shell">
       <header class="hero">
         <div class="hero-copy">
@@ -21,13 +55,18 @@
         </div>
       </header>
 
+      <div class="mode-bar" aria-live="polite">
+        <button id="back-to-gate" class="mode-back" type="button">返回选择</button>
+        <p id="mode-title" class="mode-title"></p>
+      </div>
+
       <main class="tool-layout">
         <section class="tool-columns" aria-label="决策工具">
           <div class="column-stack">
-            <article class="tool-panel">
+            <article class="tool-panel" id="major-section">
               <div class="panel-head">
-                <p class="panel-kicker">模块一</p>
-                <h2>大问题分析</h2>
+                <p class="panel-kicker">认真判断</p>
+                <h2>把重要问题拆开来看</h2>
                 <p class="panel-desc">
                   适合影响较长、代价较大、需要认真权衡的决定。你提供条件，一思给出结构化倾向，而不是替你武断拍板。
                 </p>
@@ -159,20 +198,20 @@
                 <summary class="guide-summary">
                   <div>
                     <p class="panel-kicker">使用说明</p>
-                    <h2 id="guide-title">先分清这是大问题，还是小问题</h2>
-                    <p class="guide-summary-text">大问题看风险与代价，小问题看效率与心力。</p>
+                    <h2 id="guide-title">先判断这件事该不该多想</h2>
+                    <p class="guide-summary-text">重要问题看风险与代价，轻量问题看效率与心力。</p>
                   </div>
                   <span class="guide-summary-action" aria-hidden="true">展开</span>
                 </summary>
                 <div class="guide-grid">
                   <div class="guide-item">
-                    <h3>大问题</h3>
+                    <h3>认真判断</h3>
                     <p>
                       适合重要、影响时间较长、代价较大的决定，比如工作变动、关系取舍、金钱投入、是否继续长期投入。重点是先搞清风险、信息和代价。
                     </p>
                   </div>
                   <div class="guide-item">
-                    <h3>小问题</h3>
+                    <h3>快速决定</h3>
                     <p>
                       适合低风险、低代价、没有必要继续消耗心力的选择，比如去不去、买不买、现在做还是晚点做。重点是快速定掉，不再拖延。
                     </p>
@@ -191,10 +230,10 @@
           </div>
 
           <div class="column-stack">
-            <article class="tool-panel tool-panel-minor">
+            <article class="tool-panel tool-panel-minor" id="minor-section">
               <div class="panel-head">
-                <p class="panel-kicker">模块二</p>
-                <h2>小问题快选</h2>
+                <p class="panel-kicker">快速决定</p>
+                <h2>把小问题立刻定掉</h2>
                 <p class="panel-desc">
                   适合低风险、低代价、无需反复推演的选择。目标不是最优，而是尽快停止不必要的拉扯。
                 </p>
