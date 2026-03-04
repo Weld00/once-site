@@ -8,7 +8,77 @@
       name="description"
       content="一思是一个纯静态、本地运行的决策工具，帮助你把纠结分成值得想和不值得耗的两类。"
     />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f5f5f7;
+        color: #1d1d1f;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      }
+
+      .entry-gate {
+        display: none;
+      }
+
+      body.is-gated .entry-gate {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
+
+      body.is-gated .page-shell {
+        display: none;
+      }
+
+      .entry-gate-card,
+      .hero,
+      .tool-panel,
+      .guide-panel,
+      .info-panel,
+      .mode-bar {
+        border: 1px solid #e3e4e8;
+        border-radius: 24px;
+        background: #fff;
+      }
+
+      .page-shell {
+        width: min(1180px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 28px 0 52px;
+      }
+
+      .tool-columns {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .column-stack {
+        display: grid;
+        gap: 20px;
+      }
+
+      @media (max-width: 900px) {
+        .tool-columns {
+          grid-template-columns: 1fr;
+        }
+
+        .page-shell {
+          width: min(100vw - 24px, 100%);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-shell {
+          width: min(100vw - 20px, 100%);
+          padding: 12px 0 26px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css?v=20250305a" />
   </head>
   <body class="is-gated">
     <section class="entry-gate" aria-labelledby="gate-title">
@@ -298,6 +368,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20250305a"></script>
   </body>
 </html>
