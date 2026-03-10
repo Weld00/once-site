@@ -161,10 +161,16 @@ h2 {
 }
 
 .gate-headline {
+  max-width: 100%;
   font-size: clamp(38px, 6vw, 62px);
   line-height: 1.12;
   font-weight: 760;
   text-wrap: balance;
+}
+
+html[lang^="zh"] .gate-headline {
+  white-space: nowrap;
+  letter-spacing: -0.03em;
 }
 
 .gate-summary {
@@ -603,29 +609,29 @@ html[lang^="en"] .gate-label {
 }
 
 html[lang^="en"] .gate-intro {
-  max-width: 900px;
+  max-width: 860px;
 }
 
 html[lang^="en"] .gate-headline {
-  max-width: 26ch;
+  max-width: none;
+  display: inline-block;
   margin-inline: auto;
-  font-size: clamp(30px, 3.6vw, 50px);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  white-space: normal;
-  text-wrap: balance;
+  font-size: clamp(34px, 3.9vw, 50px);
+  letter-spacing: -0.014em;
+  line-height: 1.16;
+  white-space: pre;
 }
 
 html[lang^="en"] .gate-summary {
-  width: min(700px, 100%);
+  width: min(720px, 100%);
   display: grid;
   justify-items: center;
   row-gap: 0.18em;
-  line-height: 1.62;
+  line-height: 1.58;
 }
 
 html[lang^="en"] .gate-summary span {
-  white-space: normal;
+  white-space: nowrap;
 }
 
 html[lang^="en"] .gate-block h2 {
@@ -695,19 +701,19 @@ body.mode-minor .site-footer {
 @media (max-width: 640px) {
   .lang-toggle {
     top: max(10px, env(safe-area-inset-top));
-    right: 10px;
-    padding: 8px 12px;
+    right: 9px;
+    padding: 7px 11px;
     font-size: 12px;
   }
 
   body.is-gated .entry-gate {
-    padding: calc(env(safe-area-inset-top) + 60px) 10px 12px;
+    padding: calc(env(safe-area-inset-top) + 50px) 12px 14px;
     align-items: start;
   }
 
   .entry-gate-card {
-    padding: 20px 16px 18px;
-    border-radius: 28px;
+    padding: 24px 18px 20px;
+    border-radius: 22px;
   }
 
   .gate-intro {
@@ -715,53 +721,123 @@ body.mode-minor .site-footer {
   }
 
   .gate-headline {
-    font-size: clamp(32px, 9vw, 42px);
+    font-size: clamp(30px, 8.6vw, 36px);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
   }
 
-  .gate-summary {
-    font-size: 16px;
-    line-height: 1.6;
+  html[lang^="zh"] .gate-headline {
+    font-size: clamp(24px, 6.8vw, 28px);
+    line-height: 1.2;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
   }
 
   html[lang^="en"] .gate-headline {
-    max-width: 15ch;
-    font-size: clamp(30px, 8.2vw, 40px);
+    max-width: none;
+    font-size: clamp(19px, 5.2vw, 22px);
+    line-height: 1.24;
+    white-space: pre;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .gate-summary {
+    max-width: 24rem;
+    font-size: 15px;
+    line-height: 1.64;
+    gap: 0.16em;
+  }
+
+  .gate-copy {
+    display: block;
+  }
+
+  .gate-copy span {
+    display: inline;
     white-space: normal;
+  }
+
+  html[lang^="zh"] .gate-summary {
+    width: min(19em, 100%);
   }
 
   html[lang^="en"] .gate-summary {
     width: 100%;
-    font-size: 14px;
-    line-height: 1.52;
+    font-size: clamp(11.8px, 3.25vw, 12.8px);
+    line-height: 1.5;
+    letter-spacing: -0.005em;
   }
 
   html[lang^="en"] .gate-summary span {
-    text-wrap: balance;
-  }
-
-  html[lang^="en"] .gate-label {
-    letter-spacing: 0.1em;
     white-space: nowrap;
-    font-size: 11px;
+    text-wrap: nowrap;
   }
 
-  html[lang^="en"] .gate-block p {
-    font-size: 15px;
-    line-height: 1.66;
-  }
-
-  html[lang^="en"] .gate-button {
-    min-width: 0;
+  .gate-grid {
+    gap: 14px;
   }
 
   .gate-block,
   .tool-panel {
-    padding: 18px 16px;
-    border-radius: 24px;
+    padding: 20px 16px;
+    border-radius: 20px;
   }
 
   .gate-block {
     min-height: auto;
+    gap: 12px;
+  }
+
+  .gate-label {
+    font-size: 11px;
+    line-height: 1.24;
+    letter-spacing: 0.16em;
+  }
+
+  html[lang^="en"] .gate-label {
+    letter-spacing: 0.09em;
+    white-space: nowrap;
+    font-size: 10.5px;
+    line-height: 1.25;
+  }
+
+  .gate-block h2 {
+    line-height: 1.1;
+  }
+
+  .gate-block p {
+    font-size: 15px;
+    line-height: 1.72;
+  }
+
+  html[lang^="en"] .gate-block p {
+    font-size: 14px;
+    line-height: 1.62;
+  }
+
+  .gate-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 18px;
+  }
+
+  html[lang^="en"] .gate-button {
+    min-width: 0;
+    font-size: 15px;
+  }
+
+  .gate-note {
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  html[lang^="zh"] .gate-note {
+    white-space: nowrap;
+    font-size: 10.5px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
   }
 
   .page-shell {
@@ -798,10 +874,6 @@ body.mode-minor .site-footer {
     line-height: 1.42;
   }
 
-  .gate-button {
-    width: 100%;
-  }
-
   .result-panel {
     min-height: 180px;
     padding: 16px;
@@ -827,45 +899,61 @@ body.mode-minor .site-footer {
 @media (max-width: 380px) {
   .lang-toggle {
     font-size: 11px;
-    padding: 7px 10px;
+    padding: 7px 9px;
   }
 
   .entry-gate-card {
     border-radius: 22px;
-    padding: 18px 14px 16px;
+    padding: 20px 14px 18px;
   }
 
   .gate-headline {
-    font-size: clamp(28px, 9.2vw, 34px);
-    line-height: 1.14;
+    font-size: clamp(28px, 8.8vw, 32px);
+    line-height: 1.18;
+  }
+
+  html[lang^="zh"] .gate-headline {
+    font-size: clamp(22px, 7vw, 25px);
+    white-space: nowrap;
+  }
+
+  html[lang^="en"] .gate-headline {
+    max-width: none;
+    font-size: clamp(17px, 5vw, 19px);
+    line-height: 1.26;
+    white-space: pre;
   }
 
   .gate-summary {
-    font-size: 15px;
-    line-height: 1.54;
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  html[lang^="zh"] .gate-note {
+    font-size: 9.4px;
+  }
+
+  html[lang^="en"] .gate-summary {
+    font-size: clamp(10.8px, 3.25vw, 11.8px);
+    line-height: 1.48;
   }
 
   .panel-kicker,
   .gate-label {
-    font-size: 11px;
-    letter-spacing: 0.18em;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
   }
 
   html[lang^="en"] .panel-kicker,
   html[lang^="en"] .gate-label {
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
     font-size: 10.5px;
-  }
-
-  html[lang^="en"] .gate-headline {
-    max-width: 14.5ch;
-    font-size: clamp(27px, 9.6vw, 33px);
   }
 
   .gate-block,
   .tool-panel {
-    border-radius: 20px;
-    padding: 16px 14px;
+    border-radius: 18px;
+    padding: 18px 14px;
   }
 
   .field-control {
@@ -877,7 +965,7 @@ body.mode-minor .site-footer {
   .mode-back {
     font-size: 15px;
     padding: 14px 16px;
-    min-height: 46px;
+    min-height: 50px;
   }
 }
 
@@ -902,7 +990,7 @@ body.mode-minor .site-footer {
 
   html[lang^="en"] .gate-headline {
     max-width: none;
-    white-space: nowrap;
-    font-size: clamp(30px, 2.9vw, 50px);
+    white-space: pre;
+    font-size: clamp(32px, 2.6vw, 44px);
   }
 }
