@@ -137,7 +137,7 @@ const I18N = {
     "language.button.toChinese": "中文",
     "language.aria.toEnglish": "Switch to English",
     "language.aria.toChinese": "Switch to Chinese",
-    "gate.headline": "More Once for Big Things. Just Once for Small Things.",
+    "gate.headline": "More Once for Big Things.\nJust Once for Small Things.",
     "gate.summary.line1": "Decide first if this choice deserves deep thought.",
     "gate.summary.line2": "Then choose deliberate analysis or a quick pick.",
     "gate.aria.entries": "Choose an entry mode",
