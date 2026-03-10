@@ -8,366 +8,274 @@
       name="description"
       content="一思是一个纯静态、本地运行的决策工具，帮助你把纠结分成值得想和不值得耗的两类。"
     />
-    <style>
-      body {
-        margin: 0;
-        min-height: 100vh;
-        background: #f5f5f7;
-        color: #1d1d1f;
-        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-      }
-
-      .entry-gate {
-        display: none;
-      }
-
-      body.is-gated .entry-gate {
-        display: grid;
-        place-items: center;
-        min-height: 100vh;
-        padding: 24px;
-      }
-
-      body.is-gated .page-shell {
-        display: none;
-      }
-
-      .entry-gate-card,
-      .hero,
-      .tool-panel,
-      .guide-panel,
-      .info-panel,
-      .mode-bar {
-        border: 1px solid #e3e4e8;
-        border-radius: 24px;
-        background: #fff;
-      }
-
-      .page-shell {
-        width: min(1180px, calc(100vw - 40px));
-        margin: 0 auto;
-        padding: 28px 0 52px;
-      }
-
-      .tool-columns {
-        display: grid;
-        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-        gap: 28px;
-        align-items: start;
-      }
-
-      .column-stack {
-        display: grid;
-        gap: 20px;
-      }
-
-      @media (max-width: 900px) {
-        .tool-columns {
-          grid-template-columns: 1fr;
-        }
-
-        .page-shell {
-          width: min(100vw - 24px, 100%);
-        }
-      }
-
-      @media (max-width: 640px) {
-        .page-shell {
-          width: min(100vw - 20px, 100%);
-          padding: 12px 0 26px;
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="style.css?v=20250305a" />
+    <link rel="stylesheet" href="style.css?v=20260310c" />
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body class="is-gated">
+    <button id="language-toggle" class="lang-toggle" type="button" aria-label="Switch language">English</button>
+
     <section class="entry-gate" aria-labelledby="gate-title">
       <div class="entry-gate-card">
-        <p class="hero-mark">YISI</p>
-        <h1 id="gate-title">一思</h1>
-        <p class="hero-slogan">大事多一思，小事只一思</p>
-        <p class="gate-summary">先分清这件事值不值得多想，再决定该认真判断，还是快速定掉。</p>
-        <div class="gate-grid" role="group" aria-label="选择入口">
+        <div class="gate-intro">
+          <h1 id="gate-title" class="gate-headline" data-i18n="gate.headline">大事多一思，小事只一思</h1>
+          <p class="gate-summary">
+            <span data-i18n="gate.summary.line1">先分清这件事值不值得多想，</span>
+            <span data-i18n="gate.summary.line2">再决定该认真判断，还是快速定掉。</span>
+          </p>
+        </div>
+
+        <div class="gate-grid" role="group" aria-label="选择入口" data-i18n-aria-label="gate.aria.entries">
           <article class="gate-block gate-block-major">
-            <p class="gate-label">适合重要问题</p>
-            <h2>认真判断</h2>
-            <p>
-              用在影响时间长、代价高、做错难回头的事。你输入条件，一思帮你把风险、信息和得失拆开看。
+            <p class="gate-label" data-i18n="gate.major.label">适合重要问题</p>
+            <h2 data-i18n="gate.major.title">认真判断</h2>
+            <p class="gate-copy">
+              <span data-i18n="gate.major.desc.line1">用在影响时间长、代价高、做错难回头的事。</span>
+              <span data-i18n="gate.major.desc.line2">你输入条件，一思帮你把风险、信息和得失拆开看。</span>
             </p>
-            <button id="enter-major" class="primary-button gate-button" type="button">进入认真判断</button>
+            <button id="enter-major" class="primary-button gate-button" type="button" data-i18n="gate.major.button">
+              进入认真判断
+            </button>
           </article>
+
           <article class="gate-block gate-block-minor">
-            <p class="gate-label">适合轻量选择</p>
-            <h2>快速决定</h2>
-            <p>
-              用在低风险、低代价、不值得继续耗心力的小问题。直接给出答案，帮你尽快结束内耗。
+            <p class="gate-label" data-i18n="gate.minor.label">适合轻量选择</p>
+            <h2 data-i18n="gate.minor.title">快速决定</h2>
+            <p class="gate-copy">
+              <span data-i18n="gate.minor.desc.line1">用在低风险、低代价、不值得继续耗心力的小问题。</span>
+              <span data-i18n="gate.minor.desc.line2">直接给出答案，帮你尽快结束内耗。</span>
             </p>
             <button
               id="enter-minor"
               class="primary-button primary-button-accent gate-button"
               type="button"
+              data-i18n="gate.minor.button"
             >
               进入快速决定
             </button>
           </article>
         </div>
-        <p class="gate-note">所有输入都只在当前浏览器处理，不登录、不上传、不保存。</p>
+
+        <p class="gate-note" data-i18n="gate.note">所有输入都只在当前浏览器处理，不登录、不上传、不保存。</p>
       </div>
     </section>
 
     <div class="page-shell">
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="hero-mark">YISI</p>
-          <h1>一思</h1>
-          <p class="hero-slogan">大事多一思，小事只一思</p>
-          <p class="hero-summary">帮助你把纠结分成值得想和不值得耗的两类。</p>
-        </div>
-      </header>
-
       <div class="mode-bar" aria-live="polite">
-        <button id="back-to-gate" class="mode-back" type="button">返回选择</button>
+        <button id="back-to-gate" class="mode-back" type="button" data-i18n="action.backHome">返回首页</button>
         <p id="mode-title" class="mode-title"></p>
       </div>
 
-      <main class="tool-layout">
-        <section class="tool-columns" aria-label="决策工具">
-          <div class="column-stack">
-            <article class="tool-panel" id="major-section">
-              <div class="panel-head">
-                <p class="panel-kicker">认真判断</p>
-                <h2>把重要问题拆开来看</h2>
-                <p class="panel-desc">
-                  适合影响较长、代价较大、需要认真权衡的决定。你提供条件，一思给出结构化倾向，而不是替你武断拍板。
-                </p>
-              </div>
-
-              <form id="major-form" class="tool-form" novalidate>
-                <label class="form-field">
-                  <span class="field-label">问题描述 <em>*</em></span>
-                  <textarea
-                    id="major-question"
-                    name="question"
-                    class="field-control textarea-control"
-                    rows="4"
-                    placeholder="例如：我在纠结要不要换工作 / 要不要现在买 / 要不要继续投入"
-                  ></textarea>
-                </label>
-
-                <div class="field-grid">
-                  <label class="form-field">
-                    <span class="field-label">选项 A</span>
-                    <input
-                      id="major-option-a"
-                      name="optionA"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：继续留在现在的岗位"
-                    />
-                  </label>
-                  <label class="form-field">
-                    <span class="field-label">选项 B</span>
-                    <input
-                      id="major-option-b"
-                      name="optionB"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：接受新的工作机会"
-                    />
-                  </label>
-                </div>
-
-                <div class="field-grid">
-                  <label class="form-field">
-                    <span class="field-label">最担心失去什么</span>
-                    <input
-                      id="major-loss"
-                      name="loss"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：稳定、现金流、关系、时间"
-                    />
-                  </label>
-                  <label class="form-field">
-                    <span class="field-label">最想得到什么</span>
-                    <input
-                      id="major-gain"
-                      name="gain"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：成长、自由、效率、机会"
-                    />
-                  </label>
-                </div>
-
-                <div class="decision-grid">
-                  <fieldset class="choice-fieldset">
-                    <legend>是否可逆 <em>*</em></legend>
-                    <label class="choice-option">
-                      <input type="radio" name="reversible" value="high" checked />
-                      <span>可逆</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="reversible" value="medium" />
-                      <span>部分可逆</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="reversible" value="low" />
-                      <span>不可逆</span>
-                    </label>
-                  </fieldset>
-
-                  <fieldset class="choice-fieldset">
-                    <legend>风险感受 <em>*</em></legend>
-                    <label class="choice-option">
-                      <input type="radio" name="risk" value="low" />
-                      <span>低</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="risk" value="medium" checked />
-                      <span>中</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="risk" value="high" />
-                      <span>高</span>
-                    </label>
-                  </fieldset>
-
-                  <fieldset class="choice-fieldset">
-                    <legend>信息是否充分 <em>*</em></legend>
-                    <label class="choice-option">
-                      <input type="radio" name="info" value="low" />
-                      <span>不充分</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="info" value="medium" checked />
-                      <span>一般</span>
-                    </label>
-                    <label class="choice-option">
-                      <input type="radio" name="info" value="high" />
-                      <span>充分</span>
-                    </label>
-                  </fieldset>
-                </div>
-
-                <div class="action-row">
-                  <button id="major-submit" class="primary-button" type="submit">开始分析</button>
-                  <p id="major-feedback" class="form-feedback" aria-live="polite"></p>
-                </div>
-              </form>
-
-              <section id="major-result" class="result-panel" aria-live="polite">
-                <div class="result-placeholder">
-                  填好问题后，这里会输出建议倾向、核心理由、下一步建议和决策提醒。
-                </div>
-              </section>
-            </article>
-
-            <section class="guide-panel" aria-labelledby="guide-title">
-              <details class="guide-disclosure">
-                <summary class="guide-summary">
-                  <div>
-                    <p class="panel-kicker">使用说明</p>
-                    <h2 id="guide-title">先判断这件事该不该多想</h2>
-                    <p class="guide-summary-text">重要问题看风险与代价，轻量问题看效率与心力。</p>
-                  </div>
-                  <span class="guide-summary-action" aria-hidden="true">展开</span>
-                </summary>
-                <div class="guide-grid">
-                  <div class="guide-item">
-                    <h3>认真判断</h3>
-                    <p>
-                      适合重要、影响时间较长、代价较大的决定，比如工作变动、关系取舍、金钱投入、是否继续长期投入。重点是先搞清风险、信息和代价。
-                    </p>
-                  </div>
-                  <div class="guide-item">
-                    <h3>快速决定</h3>
-                    <p>
-                      适合低风险、低代价、没有必要继续消耗心力的选择，比如去不去、买不买、现在做还是晚点做。重点是快速定掉，不再拖延。
-                    </p>
-                  </div>
-                </div>
-              </details>
-            </section>
-
-            <aside class="info-panel" aria-label="补充说明">
-              <p class="panel-kicker">补充说明</p>
-              <div class="info-item info-item-compact">
-                <h3>本地处理，按模块使用</h3>
-                <p>不登录、不上传，所有内容只在当前浏览器处理。重要问题先做结构化判断，轻量问题直接快速拍板。</p>
-              </div>
-            </aside>
+      <main class="tool-layout" aria-label="决策工具" data-i18n-aria-label="main.aria.tool">
+        <article class="tool-panel" id="major-section">
+          <div class="panel-head">
+            <p class="panel-kicker" data-i18n="major.panel.kicker">认真判断</p>
+            <h2 data-i18n="major.panel.title">把重要问题拆开来看</h2>
+            <p class="panel-desc panel-copy">
+              <span data-i18n="major.panel.desc.line1">适合影响较长、代价较大、需要认真权衡的决定。</span>
+              <span data-i18n="major.panel.desc.line2">你提供条件，一思给出结构化倾向，而不是替你武断拍板。</span>
+            </p>
           </div>
 
-          <div class="column-stack">
-            <article class="tool-panel tool-panel-minor" id="minor-section">
-              <div class="panel-head">
-                <p class="panel-kicker">快速决定</p>
-                <h2>把小问题立刻定掉</h2>
-                <p class="panel-desc">
-                  适合低风险、低代价、无需反复推演的选择。目标不是最优，而是尽快停止不必要的拉扯。
-                </p>
-              </div>
+          <form id="major-form" class="tool-form" novalidate>
+            <label class="form-field">
+              <span class="field-label"><span data-i18n="major.field.question">问题描述</span> <em>*</em></span>
+              <textarea
+                id="major-question"
+                name="question"
+                class="field-control textarea-control"
+                rows="4"
+                placeholder="例如：我在纠结要不要换工作 / 要不要现在买 / 要不要继续投入"
+                data-i18n-placeholder="major.placeholder.question"
+              ></textarea>
+            </label>
 
-              <form id="minor-form" class="tool-form" novalidate>
-                <label class="form-field">
-                  <span class="field-label">小问题描述 <em>*</em></span>
-                  <textarea
-                    id="minor-question"
-                    name="question"
-                    class="field-control textarea-control"
-                    rows="4"
-                    placeholder="例如：今天要不要去 / 吃面还是吃饭 / 现在做还是晚点做"
-                  ></textarea>
+            <div class="field-grid">
+              <label class="form-field">
+                <span class="field-label" data-i18n="major.field.optionA">选项 A</span>
+                <input
+                  id="major-option-a"
+                  name="optionA"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：继续留在现在岗位"
+                  data-i18n-placeholder="major.placeholder.optionA"
+                />
+              </label>
+
+              <label class="form-field">
+                <span class="field-label" data-i18n="major.field.optionB">选项 B</span>
+                <input
+                  id="major-option-b"
+                  name="optionB"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：接受新机会"
+                  data-i18n-placeholder="major.placeholder.optionB"
+                />
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="form-field">
+                <span class="field-label" data-i18n="major.field.loss">最担心失去什么</span>
+                <input
+                  id="major-loss"
+                  name="loss"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：稳定、现金流、关系、时间"
+                  data-i18n-placeholder="major.placeholder.loss"
+                />
+              </label>
+
+              <label class="form-field">
+                <span class="field-label" data-i18n="major.field.gain">最想得到什么</span>
+                <input
+                  id="major-gain"
+                  name="gain"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：成长、自由、效率、机会"
+                  data-i18n-placeholder="major.placeholder.gain"
+                />
+              </label>
+            </div>
+
+            <div class="decision-grid">
+              <fieldset class="choice-fieldset">
+                <legend><span data-i18n="major.field.reversible">是否可逆</span> <em>*</em></legend>
+                <label class="choice-option">
+                  <input type="radio" name="reversible" value="high" checked />
+                  <span data-i18n="major.option.reversible.high">可逆</span>
                 </label>
+                <label class="choice-option">
+                  <input type="radio" name="reversible" value="medium" />
+                  <span data-i18n="major.option.reversible.medium">部分可逆</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="reversible" value="low" />
+                  <span data-i18n="major.option.reversible.low">不可逆</span>
+                </label>
+              </fieldset>
 
-                <div class="field-grid">
-                  <label class="form-field">
-                    <span class="field-label">候选答案一（可选）</span>
-                    <input
-                      id="minor-option-a"
-                      name="optionA"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：去"
-                    />
-                  </label>
-                  <label class="form-field">
-                    <span class="field-label">候选答案二（可选）</span>
-                    <input
-                      id="minor-option-b"
-                      name="optionB"
-                      class="field-control"
-                      type="text"
-                      placeholder="例如：不去"
-                    />
-                  </label>
-                </div>
+              <fieldset class="choice-fieldset">
+                <legend><span data-i18n="major.field.risk">风险感受</span> <em>*</em></legend>
+                <label class="choice-option">
+                  <input type="radio" name="risk" value="low" />
+                  <span data-i18n="major.option.risk.low">低</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="risk" value="medium" checked />
+                  <span data-i18n="major.option.risk.medium">中</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="risk" value="high" />
+                  <span data-i18n="major.option.risk.high">高</span>
+                </label>
+              </fieldset>
 
-                <div class="action-row">
-                  <button id="minor-submit" class="primary-button primary-button-accent" type="submit">
-                    替我决定
-                  </button>
-                  <p id="minor-feedback" class="form-feedback" aria-live="polite"></p>
-                </div>
-              </form>
+              <fieldset class="choice-fieldset">
+                <legend><span data-i18n="major.field.info">信息是否充分</span> <em>*</em></legend>
+                <label class="choice-option">
+                  <input type="radio" name="info" value="low" />
+                  <span data-i18n="major.option.info.low">不充分</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="info" value="medium" checked />
+                  <span data-i18n="major.option.info.medium">一般</span>
+                </label>
+                <label class="choice-option">
+                  <input type="radio" name="info" value="high" />
+                  <span data-i18n="major.option.info.high">充分</span>
+                </label>
+              </fieldset>
+            </div>
 
-              <section id="minor-result" class="result-panel result-panel-minor" aria-live="polite">
-                <div class="result-placeholder">
-                  输入问题后，一思会立刻给出一个干脆答案。
-                </div>
-              </section>
-            </article>
+            <div class="action-row">
+              <button id="major-submit" class="primary-button" type="submit" data-i18n="major.submit">开始分析</button>
+              <p id="major-feedback" class="form-feedback" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <section id="major-result" class="result-panel" aria-live="polite">
+            <div class="result-placeholder" data-i18n="major.result.placeholder">
+              填好问题后，这里会输出建议倾向、核心理由、下一步建议和决策提醒。
+            </div>
+          </section>
+        </article>
+
+        <article class="tool-panel tool-panel-minor" id="minor-section">
+          <div class="panel-head">
+            <p class="panel-kicker" data-i18n="minor.panel.kicker">快速决定</p>
+            <h2 data-i18n="minor.panel.title">把小问题立刻定掉</h2>
+            <p class="panel-desc panel-copy">
+              <span data-i18n="minor.panel.desc.line1">适合低风险、低代价、无需反复推演的选择。</span>
+              <span data-i18n="minor.panel.desc.line2">目标不是最优答案，而是尽快停止不必要的拉扯。</span>
+            </p>
           </div>
-        </section>
+
+          <form id="minor-form" class="tool-form" novalidate>
+            <label class="form-field">
+              <span class="field-label"><span data-i18n="minor.field.question">小问题描述</span> <em>*</em></span>
+              <textarea
+                id="minor-question"
+                name="question"
+                class="field-control textarea-control"
+                rows="4"
+                placeholder="例如：今天要不要去 / 吃面还是吃饭 / 现在做还是晚点做"
+                data-i18n-placeholder="minor.placeholder.question"
+              ></textarea>
+            </label>
+
+            <div class="field-grid">
+              <label class="form-field">
+                <span class="field-label" data-i18n="minor.field.optionA">候选答案一（可选）</span>
+                <input
+                  id="minor-option-a"
+                  name="optionA"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：去"
+                  data-i18n-placeholder="minor.placeholder.optionA"
+                />
+              </label>
+
+              <label class="form-field">
+                <span class="field-label" data-i18n="minor.field.optionB">候选答案二（可选）</span>
+                <input
+                  id="minor-option-b"
+                  name="optionB"
+                  class="field-control"
+                  type="text"
+                  placeholder="例如：不去"
+                  data-i18n-placeholder="minor.placeholder.optionB"
+                />
+              </label>
+            </div>
+
+            <div class="action-row">
+              <button id="minor-submit" class="primary-button primary-button-accent" type="submit" data-i18n="minor.submit">
+                替我决定
+              </button>
+              <p id="minor-feedback" class="form-feedback" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <section id="minor-result" class="result-panel result-panel-minor" aria-live="polite">
+            <div class="result-placeholder" data-i18n="minor.result.placeholder">输入问题后，一思会立刻给出一个干脆答案。</div>
+          </section>
+        </article>
       </main>
 
       <footer class="site-footer">
-        <p>所有判断仅供辅助，决定仍属于你自己。</p>
-        <p>本站不保存输入内容，默认在本地完成处理。</p>
+        <p data-i18n="footer.line1">所有判断仅供辅助，决定仍属于你自己。</p>
+        <p data-i18n="footer.line2">默认本地处理，不上传、不留痕。</p>
       </footer>
     </div>
 
-    <script src="script.js?v=20250305a"></script>
+    <script src="script.js?v=20260310c"></script>
   </body>
 </html>
