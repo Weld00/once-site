@@ -138,15 +138,15 @@ const I18N = {
     "language.aria.toEnglish": "Switch to English",
     "language.aria.toChinese": "Switch to Chinese",
     "gate.headline": "More Once for Big Things. Just Once for Small Things.",
-    "gate.summary.line1": "First decide whether this choice is worth deeper thought.",
+    "gate.summary.line1": "Decide first if this choice deserves deep thought.",
     "gate.summary.line2": "Then choose deliberate analysis or a quick pick.",
     "gate.aria.entries": "Choose an entry mode",
-    "gate.major.label": "For significant choices",
+    "gate.major.label": "For major choices",
     "gate.major.title": "Deliberate Analysis",
     "gate.major.desc.line1": "Use this for long-term, costly, and hard-to-reverse decisions.",
     "gate.major.desc.line2": "Add your context. Yisi separates risk, information, and trade-offs.",
     "gate.major.button": "Enter Deliberate Analysis",
-    "gate.minor.label": "For lightweight choices",
+    "gate.minor.label": "For quick choices",
     "gate.minor.title": "Quick Pick",
     "gate.minor.desc.line1": "Use this for low-risk, low-cost choices not worth extra mental load.",
     "gate.minor.desc.line2": "Get one answer, reduce hesitation, and move on.",
@@ -704,10 +704,13 @@ function renderMajorResult(result, data, language = currentLanguage) {
 }
 
 function renderMinorResult(result, data, language = currentLanguage) {
+  const answerText = compactText(result.answer);
+  const answerClass = answerText.length > 8 ? "minor-answer minor-answer-long" : "minor-answer";
+
   return `
     <h3 class="result-title">${escapeHtml(t("minor.result.title", {}, language))}</h3>
     <div class="result-badge">${escapeHtml(t("minor.result.badge", { answer: result.answer }, language))}</div>
-    <p class="minor-answer">${escapeHtml(result.answer)}</p>
+    <p class="${answerClass}">${escapeHtml(result.answer)}</p>
     <div class="result-block">
       <h3>${escapeHtml(t("minor.result.section.note", {}, language))}</h3>
       <p class="result-text">${escapeHtml(result.note)}</p>
